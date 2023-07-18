@@ -13,7 +13,7 @@ class LoginViewController: ExtensionViewController {
     var currentUser: User?
     
     var realm: Realm!
-
+    
     @IBOutlet weak var loginTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,6 +22,11 @@ class LoginViewController: ExtensionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let realmURL = try! FileManager.default
+            .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            .appendingPathComponent("default.realm")
+        print(realmURL)
         
         addBorderAndRoundedCorners(to: loginTextField)
         addBorderAndRoundedCorners(to: passwordTextField)
@@ -33,7 +38,7 @@ class LoginViewController: ExtensionViewController {
         
         loginTextField.addTarget(self, action: #selector(updateLoginButtonState), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(updateLoginButtonState), for: .editingChanged)
-
+        
         updateLoginButtonState()
         
         do {
@@ -46,14 +51,17 @@ class LoginViewController: ExtensionViewController {
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
         guard let username = loginTextField.text,
-        let password = passwordTextField.text else { return }
-                
+              let password = passwordTextField.text else { return }
+        
         let users = realm.objects(User.self).filter("username = %@ AND password = %@", username, password)
-                
+        
         if let user = users.first {
             if user.role == Role.admin.rawValue {
                 currentUser = user
                 navigateToAdminPanel()
+            } else if user.role == Role.waiter.rawValue {
+                currentUser = user
+                navigateToWaiterPanel()
             }
             
             print("User found: \(user.username)")
@@ -72,6 +80,14 @@ class LoginViewController: ExtensionViewController {
         navigationController?.pushViewController(adminVC, animated: true)
     }
     
+    func navigateToWaiterPanel() {
+        // Вам потрібно буде замінити 'AdminPanelViewController' на ім'я вашого класу в storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let waiterVC = storyboard.instantiateViewController(withIdentifier: "WaiterViewController") as! WaiterViewController
+        waiterVC.currentUser = currentUser
+        navigationController?.pushViewController(waiterVC, animated: true)
+    }
+    
     @objc func updateLoginButtonState() {
         // Button is enabled if both text fields are not empty
         let userLoginText = loginTextField.text ?? ""
@@ -79,7 +95,7 @@ class LoginViewController: ExtensionViewController {
         loginButton.isEnabled = !userLoginText.isEmpty && !userPasswordText.isEmpty
     }
     
-
+    
 }
 
 

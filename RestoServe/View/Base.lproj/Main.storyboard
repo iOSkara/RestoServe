@@ -25,14 +25,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="adm" borderStyle="roundedRect" placeholder="Логін" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H41-oR-SNQ">
-                                <rect key="frame" x="20" y="486" width="728" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="wa" borderStyle="roundedRect" placeholder="Логін" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H41-oR-SNQ">
+                                <rect key="frame" x="20" y="486" width="728" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="adm" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdx-9r-hHf">
-                                <rect key="frame" x="20" y="541" width="728" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="wa" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdx-9r-hHf">
+                                <rect key="frame" x="20" y="541" width="728" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -88,8 +88,8 @@
                                     <action selector="addNewCategryPressed:" destination="Cge-k2-71q" eventType="touchUpInside" id="cmV-Yi-8mx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Створення нових категорій страв" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7h-uV-46S">
-                                <rect key="frame" x="120" y="40" width="528" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Управління категоріями страв" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7h-uV-46S">
+                                <rect key="frame" x="146" y="40" width="476" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
@@ -146,28 +146,115 @@
                     </view>
                     <connections>
                         <outlet property="addNewCategryButton" destination="uSe-t1-hcE" id="UKi-ff-mdi"/>
+                        <outlet property="deleteButton" destination="N1s-b6-4IK" id="9cu-oP-6GQ"/>
+                        <outlet property="editButton" destination="Kre-nz-6oZ" id="zjL-ch-WWA"/>
                         <outlet property="newCategoryTextField" destination="cMS-LL-Pay" id="WDS-g8-0db"/>
                         <outlet property="tableView" destination="yPb-71-cgH" id="Fu3-rX-psS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBS-ls-8z9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2335.9375" y="-1234.5703125"/>
+            <point key="canvasLocation" x="3048" y="-1232"/>
         </scene>
-        <!--View Controller-->
+        <!--Waiter View Controller-->
         <scene sceneID="tNW-rU-PtY">
             <objects>
-                <viewController id="nDd-Ln-Eya" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WaiterViewController" id="nDd-Ln-Eya" customClass="WaiterViewController" customModule="RestoServe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Can-3a-kLy">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="sUp-jD-0Ze">
+                                <rect key="frame" x="20" y="112" width="728" height="381"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IuH-K4-a8b">
+                                        <rect key="frame" x="0.0" y="0.0" width="728" height="51"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Перегляд меню">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="showMenuButtonPressed:" destination="nDd-Ln-Eya" eventType="touchUpInside" id="zOV-3b-o5k"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4S-bc-Q1H">
+                                        <rect key="frame" x="0.0" y="66" width="728" height="51"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Створити замовлення">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="createOrderButtonPressed:" destination="nDd-Ln-Eya" eventType="touchUpInside" id="G3l-BY-hce"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44V-eQ-nSj">
+                                        <rect key="frame" x="0.0" y="132" width="728" height="51"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Відслідковування статусу замовлень">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPH-Zp-DQI">
+                                        <rect key="frame" x="0.0" y="198" width="728" height="51"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Редагування замовлень">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jJ-nq-b5O">
+                                        <rect key="frame" x="0.0" y="264" width="728" height="51"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Видалення замовлень">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIF-DQ-Eya">
+                                        <rect key="frame" x="0.0" y="330" width="728" height="51"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Закрити замовлення (Друк)">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Меню офіціанта" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCN-s8-Rh4">
+                                <rect key="frame" x="178" y="20" width="412" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ypW-8a-rRg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ypW-8a-rRg" firstAttribute="trailing" secondItem="xCN-s8-Rh4" secondAttribute="trailing" constant="178" id="Fyi-fK-PUs"/>
+                            <constraint firstItem="sUp-jD-0Ze" firstAttribute="top" secondItem="xCN-s8-Rh4" secondAttribute="bottom" constant="50" id="JdO-8L-ZpA"/>
+                            <constraint firstItem="sUp-jD-0Ze" firstAttribute="leading" secondItem="ypW-8a-rRg" secondAttribute="leading" constant="20" id="Q4K-cd-Y5L"/>
+                            <constraint firstItem="ypW-8a-rRg" firstAttribute="trailing" secondItem="sUp-jD-0Ze" secondAttribute="trailing" constant="20" id="RMc-57-zUJ"/>
+                            <constraint firstItem="sUp-jD-0Ze" firstAttribute="centerX" secondItem="Can-3a-kLy" secondAttribute="centerX" id="V3O-tU-zcK"/>
+                            <constraint firstItem="xCN-s8-Rh4" firstAttribute="top" secondItem="ypW-8a-rRg" secondAttribute="top" id="cuN-PD-nir"/>
+                            <constraint firstItem="xCN-s8-Rh4" firstAttribute="leading" secondItem="ypW-8a-rRg" secondAttribute="leading" constant="178" id="p6k-U3-glU"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khM-hx-tQ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2336" y="-571"/>
+            <point key="canvasLocation" x="4523" y="96"/>
+        </scene>
+        <!--New Order View Controller-->
+        <scene sceneID="19g-w4-QmI">
+            <objects>
+                <viewController storyboardIdentifier="NewOrderViewController" id="DXt-Z2-QIb" customClass="NewOrderViewController" customModule="RestoServe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kjs-vE-1jX">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kg5-2b-qr2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ft8-eR-354" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5273" y="96"/>
         </scene>
         <!--Admin Panel View Controller-->
         <scene sceneID="xIa-Lt-r7r">
@@ -178,7 +265,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wcY-6e-GCw">
-                                <rect key="frame" x="20" y="112" width="728" height="447"/>
+                                <rect key="frame" x="20" y="112" width="728" height="513"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOA-MD-j3y">
                                         <rect key="frame" x="0.0" y="0.0" width="728" height="51"/>
@@ -193,7 +280,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCX-ta-vGp">
                                         <rect key="frame" x="0.0" y="66" width="728" height="51"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Список користувачів">
+                                        <buttonConfiguration key="configuration" style="filled" title="Управління користувачами">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -203,7 +290,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toO-2A-Wxz">
                                         <rect key="frame" x="0.0" y="132" width="728" height="51"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Додати категорії страв">
+                                        <buttonConfiguration key="configuration" style="filled" title="Управління категоріями страв">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -216,9 +303,22 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Додати нові страви">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="createNewDishButtonPressed:" destination="4BI-q3-Bal" eventType="touchUpInside" id="CQT-Vi-8qd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3v-hC-9qZ">
+                                        <rect key="frame" x="0.0" y="264" width="728" height="51"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Переглянути список страв">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="listOfDishesButtonPressed:" destination="4BI-q3-Bal" eventType="touchUpInside" id="NB9-ty-RtC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otf-0h-kTQ">
-                                        <rect key="frame" x="0.0" y="264" width="728" height="51"/>
+                                        <rect key="frame" x="0.0" y="330" width="728" height="51"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Переглянути список столиків">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
@@ -228,14 +328,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZG-6X-IgE">
-                                        <rect key="frame" x="0.0" y="330" width="728" height="51"/>
+                                        <rect key="frame" x="0.0" y="396" width="728" height="51"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Переглянути список поточних замовлень">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kH7-Fx-Bqg">
-                                        <rect key="frame" x="0.0" y="396" width="728" height="51"/>
+                                        <rect key="frame" x="0.0" y="462" width="728" height="51"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Переглянути архів замовлень">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
@@ -268,6 +368,120 @@
             </objects>
             <point key="canvasLocation" x="2324.21875" y="95.5078125"/>
         </scene>
+        <!--Dishes View Controller-->
+        <scene sceneID="4PQ-B3-rf5">
+            <objects>
+                <viewController storyboardIdentifier="DishesViewController" id="qZP-fI-pQ0" customClass="DishesViewController" customModule="RestoServe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="llh-x7-zb9">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R3E-hl-nUB">
+                                <rect key="frame" x="20" y="135" width="728" height="750"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g5C-Vv-W0j">
+                                        <rect key="frame" x="0.0" y="0.0" width="728" height="750"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DishCell" textLabel="8Ld-KG-0ji" detailTextLabel="Z4l-mG-7BG" style="IBUITableViewCellStyleSubtitle" id="xis-Mp-lDm">
+                                                <rect key="frame" x="0.0" y="44.5" width="728" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xis-Mp-lDm" id="aiW-pt-ogT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="691.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Ld-KG-0ji">
+                                                            <rect key="frame" x="16" y="6" width="25" height="14.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z4l-mG-7BG">
+                                                            <rect key="frame" x="16" y="22.5" width="30.5" height="13.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Rce-T9-bzn"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="dMW-8n-ROq"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Список страв" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Os8-Es-58y">
+                                <rect key="frame" x="20" y="86" width="728" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="В наявності?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wk-Mg-ciO">
+                                <rect key="frame" x="604" y="97" width="144" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Наявність" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6o-QB-I1P">
+                                <rect key="frame" x="579" y="900" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yw-ZR-Tqs">
+                                <rect key="frame" x="20" y="893" width="181" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Редагувати">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="glI-cG-ljB" kind="show" identifier="goToNewDish" id="a24-6W-ZVx"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Dw-au-6dl">
+                                <rect key="frame" x="699" y="900" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="isAvailableSwitchValueChanged:" destination="qZP-fI-pQ0" eventType="valueChanged" id="Arq-r0-cdp"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09w-Cz-VEB">
+                                <rect key="frame" x="294" y="893" width="181" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Видалити">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteDishButtonPressed:" destination="qZP-fI-pQ0" eventType="touchUpInside" id="dji-CW-cuG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NO0-cB-TmT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="deleteButton" destination="09w-Cz-VEB" id="kXV-Dn-Joy"/>
+                        <outlet property="editButton" destination="6yw-ZR-Tqs" id="P0w-yW-ZXr"/>
+                        <outlet property="isAvailableLabel" destination="o6o-QB-I1P" id="yZp-lW-ixM"/>
+                        <outlet property="isAvailableSwitch" destination="6Dw-au-6dl" id="ykE-9n-GTq"/>
+                        <outlet property="labelText" destination="Os8-Es-58y" id="F4m-H5-Ew6"/>
+                        <outlet property="tableView" destination="g5C-Vv-W0j" id="LcC-Wd-18g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3RB-TK-gyN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3726.5625" y="1425.5859375"/>
+        </scene>
         <!--New User View Controller-->
         <scene sceneID="WB6-mf-riA">
             <objects>
@@ -295,9 +509,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GlU-C8-09y">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GlU-C8-09y">
                                 <rect key="frame" x="20" y="412" width="664" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Роль" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Rv-Qv-eMs">
                                 <rect key="frame" x="320" y="368" width="65" height="36"/>
@@ -306,9 +519,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-em-MBY">
-                                <rect key="frame" x="229" y="636" width="247" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-em-MBY">
+                                <rect key="frame" x="270" y="636" width="164" height="44"/>
                                 <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                 <color key="tintColor" systemColor="secondaryLabelColor"/>
                                 <state key="normal" title="Button"/>
@@ -322,6 +534,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2MA-aO-JXG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2MA-aO-JXG" firstAttribute="trailing" secondItem="hQg-em-MBY" secondAttribute="trailing" constant="270" id="0tD-hb-AL4"/>
+                            <constraint firstItem="hQg-em-MBY" firstAttribute="top" secondItem="GlU-C8-09y" secondAttribute="bottom" constant="8" symbolic="YES" id="9N3-5g-wAW"/>
+                            <constraint firstItem="hQg-em-MBY" firstAttribute="centerX" secondItem="rHv-Va-Z8F" secondAttribute="centerX" id="GrQ-Db-CLP"/>
+                            <constraint firstItem="GlU-C8-09y" firstAttribute="centerX" secondItem="rHv-Va-Z8F" secondAttribute="centerX" id="Orv-RF-uiy"/>
+                            <constraint firstItem="GlU-C8-09y" firstAttribute="leading" secondItem="2MA-aO-JXG" secondAttribute="leading" constant="20" id="Zed-fP-dcI"/>
+                            <constraint firstItem="2MA-aO-JXG" firstAttribute="bottom" secondItem="hQg-em-MBY" secondAttribute="bottom" constant="304" id="b4h-Tw-E6j"/>
+                            <constraint firstItem="2MA-aO-JXG" firstAttribute="trailing" secondItem="GlU-C8-09y" secondAttribute="trailing" constant="20" id="di4-bP-K2O"/>
+                            <constraint firstItem="hQg-em-MBY" firstAttribute="leading" secondItem="2MA-aO-JXG" secondAttribute="leading" constant="270" id="i5w-Ji-xYU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="n3p-Bx-Eyw"/>
                     <connections>
@@ -383,6 +605,9 @@
                             <outlet property="delegate" destination="KHI-ck-6Wa" id="OTz-GQ-WOX"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="labelText" destination="uEV-cI-eyP" id="bHm-6p-Wml"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfi-1D-jZr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -488,11 +713,117 @@
                     <navigationItem key="navigationItem" id="duT-3D-3ZW"/>
                     <connections>
                         <outlet property="deleteButton" destination="Y3o-XU-H3f" id="htw-77-AWz"/>
+                        <outlet property="editButton" destination="9BW-zO-Q4T" id="19j-Si-5gb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BiR-wH-LP9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3048" y="-571"/>
+        </scene>
+        <!--New Dish View Controller-->
+        <scene sceneID="2rX-pJ-3L8">
+            <objects>
+                <viewController storyboardIdentifier="NewDishViewController" id="glI-cG-ljB" customClass="NewDishViewController" customModule="RestoServe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hSQ-m2-RoE">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Назва страви" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gt-7H-uh8">
+                                <rect key="frame" x="20" y="112" width="369" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Опис страви (Опціонально)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-Gc-ULy">
+                                <rect key="frame" x="20" y="192" width="369" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRt-03-lpd">
+                                <rect key="frame" x="20" y="150" width="728" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ABy-ba-fYV">
+                                <rect key="frame" x="20" y="230" width="728" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ціна страви" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8K-Ap-4vh">
+                                <rect key="frame" x="20" y="272" width="217" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="грн" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVj-v4-mkO">
+                                <rect key="frame" x="397" y="312" width="217" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJG-Oe-gA8">
+                                <rect key="frame" x="20" y="310" width="369" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Категорія страви" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYe-kn-afV">
+                                <rect key="frame" x="20" y="352" width="369" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Час на приготування страви" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsZ-0n-yYd">
+                                <rect key="frame" x="20" y="505" width="369" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXK-Cn-OAv">
+                                <rect key="frame" x="20" y="390" width="664" height="107"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="5" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVW-AB-HSk">
+                                <rect key="frame" x="20" y="543" width="664" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oS2-Q1-zXG">
+                                <rect key="frame" x="307" y="767" width="155" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Зберегти">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveNewDishButtonPressed:" destination="glI-cG-ljB" eventType="touchUpInside" id="qzd-15-BMr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kvd-GZ-2bq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xjC-Q6-ho9"/>
+                    <connections>
+                        <outlet property="dishCategoryPicker" destination="aXK-Cn-OAv" id="5OU-Mq-VZh"/>
+                        <outlet property="dishDescriptionTextField" destination="ABy-ba-fYV" id="RQw-g7-pTu"/>
+                        <outlet property="dishNameTextField" destination="aRt-03-lpd" id="tdS-nR-IiT"/>
+                        <outlet property="dishPriceTextField" destination="AJG-Oe-gA8" id="dzh-3i-jKG"/>
+                        <outlet property="dishTimePicker" destination="HVW-AB-HSk" id="c69-xs-gCp"/>
+                        <outlet property="saveNewDishButton" destination="oS2-Q1-zXG" id="TVz-9F-0ga"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OcT-MQ-ai0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3047.65625" y="1425.5859375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TXm-VO-7RQ">

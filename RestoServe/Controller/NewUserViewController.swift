@@ -42,7 +42,7 @@ class NewUserViewController: ExtensionViewController, UIPickerViewDataSource, UI
         
         userLoginTextField.addTarget(self, action: #selector(updateCreateButtonState), for: .editingChanged)
         userPasswordTextField.addTarget(self, action: #selector(updateCreateButtonState), for: .editingChanged)
-
+        
         updateCreateButtonState()
         
         // Set the picker view's delegate and data source to this view controller
@@ -51,7 +51,7 @@ class NewUserViewController: ExtensionViewController, UIPickerViewDataSource, UI
         
         // Add border to UIPickerView
         addBorderAndRoundedCorners(to: rolePickerView)
-
+        
         addBorderAndRoundedCorners(to: userLoginTextField)
         addBorderAndRoundedCorners(to: userPasswordTextField)
         
@@ -69,7 +69,7 @@ class NewUserViewController: ExtensionViewController, UIPickerViewDataSource, UI
             userLoginTextField.text = user.username
             userPasswordTextField.text = user.password
             if let role = Role(rawValue: user.role),
-                let index = Role.allCases.firstIndex(of: role) {
+               let index = Role.allCases.firstIndex(of: role) {
                 rolePickerView.selectRow(index, inComponent: 0, animated: true)
             }
             
@@ -102,53 +102,54 @@ class NewUserViewController: ExtensionViewController, UIPickerViewDataSource, UI
         
         if isEditingUser {
             guard let user = userToEdit else { return }
-                
-                do {
-                    try realm.write {
-                        user.username = userLoginTextField.text!
-                        user.password = userPasswordTextField.text!
-                        user.role = Role.allCases[rolePickerView.selectedRow(inComponent: 0)].rawValue
-                        print("User updated successfully")
-                    }
-                    NotificationCenter.default.post(name: NSNotification.Name("UserUpdated"), object: nil)
-                    self.dismiss(animated: true, completion: nil)
-                } catch let error {
-                    print("Error updating user: \(error)")
+            
+            do {
+                try realm.write {
+                    user.username = userLoginTextField.text!
+                    user.password = userPasswordTextField.text!
+                    user.role = Role.allCases[rolePickerView.selectedRow(inComponent: 0)].rawValue
+                    print("User updated successfully")
                 }
+                NotificationCenter.default.post(name: NSNotification.Name("UserUpdated"), object: nil)
+                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
+            } catch let error {
+                print("Error updating user: \(error)")
+            }
             
         } else {
             let user = User()
             user.username = userLoginTextField.text!
             user.password = userPasswordTextField.text!
             user.role = Role.allCases[rolePickerView.selectedRow(inComponent: 0)].rawValue
-                
+            
             let existingUsers = realm.objects(User.self).filter("username = %@", user.username)
-                
+            
             if let _ = existingUsers.first {
                 let alertController = UIAlertController(title: "Помилка", message: "Такий користувач вже існує.", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alertController, animated: true, completion: nil)
                 return
             }
-
-                do {
-                    try realm.write {
-                        realm.add(user)
-                        print("User added successfully")
-                        userLoginTextField.text! = ""
-                        userPasswordTextField.text! = ""
-                        rolePickerView.selectRow(0, inComponent: 0, animated: true)
-                    }
-                    self.dismiss(animated: true, completion: nil)
-                } catch let error {
-                    print("Error creating new user: \(error)")
+            
+            do {
+                try realm.write {
+                    realm.add(user)
+                    print("User added successfully")
+                    userLoginTextField.text! = ""
+                    userPasswordTextField.text! = ""
+                    rolePickerView.selectRow(0, inComponent: 0, animated: true)
                 }
+                self.dismiss(animated: true, completion: nil)
+            } catch let error {
+                print("Error creating new user: \(error)")
+            }
         }
         
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            return 1
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -156,6 +157,6 @@ class NewUserViewController: ExtensionViewController, UIPickerViewDataSource, UI
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return Role.allCases[row].rawValue
-        }
+        return Role.allCases[row].rawValue
+    }
 }

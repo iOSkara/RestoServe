@@ -11,10 +11,9 @@ import RealmSwift
 class Order: Object {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var waiterId: String?
-    let dishes = List<Dish>()
+    let customerOrders = List<CustomerOrder>()
     @objc dynamic var orderTime = Date()
     @objc dynamic var status = "" // "accepted", "in progress", "ready"
-    let customerOrders = List<CustomerOrder>()
 
     override class func primaryKey() -> String? {
         return "id"

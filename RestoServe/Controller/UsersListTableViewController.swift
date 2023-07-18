@@ -14,16 +14,18 @@ class UsersListTableViewController: UITableViewController {
     var selectedUser: User?
     let realm = try! Realm()
     var currentUser: User?
-
+    
     @IBOutlet weak var editButton: UIButton!
     
     @IBOutlet weak var deleteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.fetchUsers()
         NotificationCenter.default.addObserver(self, selector: #selector(self.userUpdated), name: NSNotification.Name("UserUpdated"), object: nil)
-        
+        editButton.isEnabled = false
+        deleteButton.isEnabled = false
         
     }
     
@@ -35,7 +37,7 @@ class UsersListTableViewController: UITableViewController {
             
         }
         
-            
+        
         // Perform the segue to NewUserViewController
         performSegue(withIdentifier: "editUser", sender: self)
         
@@ -43,7 +45,6 @@ class UsersListTableViewController: UITableViewController {
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         // Check if a user is selected
-        print(currentUser)
         if selectedUser == currentUser {
             let alertController = UIAlertController(title: "Помилка", message: "Ви не можете видалити себе.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default))
@@ -55,7 +56,7 @@ class UsersListTableViewController: UITableViewController {
             print("No user selected!")
             return
         }
-
+        
         // Create the alert controller
         let alertController = UIAlertController(title: "Видалити користувача", message: "Вивпевнені, що хочете видалити \(user.username)?", preferredStyle: .alert)
         
@@ -66,6 +67,7 @@ class UsersListTableViewController: UITableViewController {
                     self.realm.delete(user)
                     print("User deleted successfully")
                     self.fetchUsers()
+                    //self.updateButtonState()
                 }
             } catch let error {
                 print("Error deleting user: \(error)")
@@ -89,11 +91,11 @@ class UsersListTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return users.count
@@ -110,6 +112,14 @@ class UsersListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedUser = users[indexPath.row]
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        editButton.isEnabled = true
+        deleteButton.isEnabled = true
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selectedUser = nil
+        editButton.isEnabled = true
+        deleteButton.isEnabled = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -134,6 +144,6 @@ class UsersListTableViewController: UITableViewController {
     @objc private func userUpdated(_ notification: Notification) {
         self.fetchUsers()
     }
-
-
+    
+    
 }

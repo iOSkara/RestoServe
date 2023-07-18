@@ -12,7 +12,7 @@ class AdminPanelViewController: ExtensionViewController{
     
     let realm = try! Realm()
     var currentUser: User?
-
+    
     @IBOutlet weak var createNewUserButton: UIButton!
     
     override func viewDidLoad() {
@@ -41,6 +41,33 @@ class AdminPanelViewController: ExtensionViewController{
         navigateToTablesList()
         
     }
+    
+    @IBAction func createNewDishButtonPressed(_ sender: UIButton) {
+        navigateToCreateDish()
+    }
+    
+    @IBAction func listOfDishesButtonPressed(_ sender: UIButton) {
+        navigateToListOfDishes()
+    }
+    
+    
+    func navigateToCreateDish() {
+        // Вам потрібно буде замінити 'AdminPanelViewController' на ім'я вашого класу в storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let createDishVC = storyboard.instantiateViewController(withIdentifier: "NewDishViewController") as! NewDishViewController
+        createDishVC.currentUser = currentUser
+        navigationController?.pushViewController(createDishVC, animated: true)
+    }
+    
+    func navigateToListOfDishes() {
+        // Вам потрібно буде замінити 'AdminPanelViewController' на ім'я вашого класу в storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let listOfDishesVC = storyboard.instantiateViewController(withIdentifier: "DishesViewController") as! DishesViewController
+        listOfDishesVC.currentUser = currentUser
+        navigationController?.pushViewController(listOfDishesVC, animated: true)
+    }
+    
+    
     
     func navigateToCreateUser() {
         // Вам потрібно буде замінити 'AdminPanelViewController' на ім'я вашого класу в storyboard
@@ -73,6 +100,6 @@ class AdminPanelViewController: ExtensionViewController{
         categoryVC.currentUser = currentUser
         navigationController?.pushViewController(categoryVC, animated: true)
     }
-
+    
     
 }

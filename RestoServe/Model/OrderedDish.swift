@@ -1,5 +1,5 @@
 //
-//  Category.swift
+//  OrderedDish.swift
 //  RestoServe
 //
 //  Created by Roman Vasyltsov on 14.07.2023.
@@ -8,10 +8,10 @@
 import Foundation
 import RealmSwift
 
-class Category: Object {
+class OrderedDish: Object {
     @objc dynamic var id = UUID().uuidString
-    @objc dynamic var name = ""
-    let dishes = LinkingObjects(fromType: Dish.self, property: "category")
+    @objc dynamic var dishId: Dish?
+    @objc dynamic var remainingTime = 0 // in seconds
 
     override class func primaryKey() -> String? {
         return "id"

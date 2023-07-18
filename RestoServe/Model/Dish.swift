@@ -28,6 +28,7 @@ class Dish: Object {
     @objc dynamic var price = 0.0
     @objc dynamic var category: Category?
     @objc dynamic var estimatedCookingTime = 0 // in seconds
+    @objc dynamic var isAvailable: Bool = true
 
     override class func primaryKey() -> String? {
         return "id"

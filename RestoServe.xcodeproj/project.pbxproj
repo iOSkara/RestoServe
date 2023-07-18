@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		042246372A62B4FE004DD867 /* TableDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042246362A62B4FE004DD867 /* TableDetailsViewController.swift */; };
 		042246392A62BFF1004DD867 /* CategoryManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042246382A62BFF1004DD867 /* CategoryManagerViewController.swift */; };
+		0422463C2A6562EA004DD867 /* NewDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422463B2A6562EA004DD867 /* NewDishViewController.swift */; };
+		0422463E2A657153004DD867 /* DishesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422463D2A657153004DD867 /* DishesViewController.swift */; };
+		042246402A65D9BA004DD867 /* WaiterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422463F2A65D9BA004DD867 /* WaiterViewController.swift */; };
+		042246422A65E878004DD867 /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042246412A65E878004DD867 /* NewOrderViewController.swift */; };
+		042246442A66938C004DD867 /* CustomerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042246432A66938C004DD867 /* CustomerOrder.swift */; };
 		0499578A2A61982600D08B99 /* UsersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049957892A61982600D08B99 /* UsersListTableViewController.swift */; };
 		0499578C2A61D4DE00D08B99 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499578B2A61D4DE00D08B99 /* ExtensionViewController.swift */; };
 		0499578E2A62A96200D08B99 /* TablesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499578D2A62A96200D08B99 /* TablesListViewController.swift */; };
@@ -19,7 +24,6 @@
 		04BE30EA2A6179AF004A8B24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BE30E92A6179AF004A8B24 /* Assets.xcassets */; };
 		04BE30ED2A6179AF004A8B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE30EB2A6179AF004A8B24 /* LaunchScreen.storyboard */; };
 		04BE30F62A617AA2004A8B24 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE30F52A617AA2004A8B24 /* Category.swift */; };
-		04BE30F82A617ACA004A8B24 /* CustomerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE30F72A617ACA004A8B24 /* CustomerOrder.swift */; };
 		04BE30FA2A617AE6004A8B24 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE30F92A617AE6004A8B24 /* Dish.swift */; };
 		04BE30FC2A617AFC004A8B24 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE30FB2A617AFC004A8B24 /* Order.swift */; };
 		04BE30FE2A617B16004A8B24 /* OrderedDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE30FD2A617B16004A8B24 /* OrderedDish.swift */; };
@@ -34,6 +38,11 @@
 /* Begin PBXFileReference section */
 		042246362A62B4FE004DD867 /* TableDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDetailsViewController.swift; sourceTree = "<group>"; };
 		042246382A62BFF1004DD867 /* CategoryManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManagerViewController.swift; sourceTree = "<group>"; };
+		0422463B2A6562EA004DD867 /* NewDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDishViewController.swift; sourceTree = "<group>"; };
+		0422463D2A657153004DD867 /* DishesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesViewController.swift; sourceTree = "<group>"; };
+		0422463F2A65D9BA004DD867 /* WaiterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaiterViewController.swift; sourceTree = "<group>"; };
+		042246412A65E878004DD867 /* NewOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
+		042246432A66938C004DD867 /* CustomerOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrder.swift; sourceTree = "<group>"; };
 		049957892A61982600D08B99 /* UsersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListTableViewController.swift; sourceTree = "<group>"; };
 		0499578B2A61D4DE00D08B99 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		0499578D2A62A96200D08B99 /* TablesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesListViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +55,6 @@
 		04BE30EC2A6179AF004A8B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04BE30EE2A6179AF004A8B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04BE30F52A617AA2004A8B24 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		04BE30F72A617ACA004A8B24 /* CustomerOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrder.swift; sourceTree = "<group>"; };
 		04BE30F92A617AE6004A8B24 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		04BE30FB2A617AFC004A8B24 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		04BE30FD2A617B16004A8B24 /* OrderedDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedDish.swift; sourceTree = "<group>"; };
@@ -83,6 +91,10 @@
 				0499578D2A62A96200D08B99 /* TablesListViewController.swift */,
 				042246362A62B4FE004DD867 /* TableDetailsViewController.swift */,
 				042246382A62BFF1004DD867 /* CategoryManagerViewController.swift */,
+				0422463B2A6562EA004DD867 /* NewDishViewController.swift */,
+				0422463D2A657153004DD867 /* DishesViewController.swift */,
+				0422463F2A65D9BA004DD867 /* WaiterViewController.swift */,
+				042246412A65E878004DD867 /* NewOrderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -123,13 +135,13 @@
 			isa = PBXGroup;
 			children = (
 				04BE30F52A617AA2004A8B24 /* Category.swift */,
-				04BE30F72A617ACA004A8B24 /* CustomerOrder.swift */,
 				04BE30F92A617AE6004A8B24 /* Dish.swift */,
 				04BE30FB2A617AFC004A8B24 /* Order.swift */,
 				04BE30FD2A617B16004A8B24 /* OrderedDish.swift */,
 				04BE30FF2A617B2B004A8B24 /* Table.swift */,
 				04BE31012A617B49004A8B24 /* User.swift */,
 				04BE31082A6188CB004A8B24 /* Role.swift */,
+				042246432A66938C004DD867 /* CustomerOrder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,14 +287,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0422463E2A657153004DD867 /* DishesViewController.swift in Sources */,
 				04BE30E52A6179AC004A8B24 /* LoginViewController.swift in Sources */,
 				04BE30FE2A617B16004A8B24 /* OrderedDish.swift in Sources */,
 				04BE30E12A6179AC004A8B24 /* AppDelegate.swift in Sources */,
+				042246442A66938C004DD867 /* CustomerOrder.swift in Sources */,
+				042246402A65D9BA004DD867 /* WaiterViewController.swift in Sources */,
 				04BE31002A617B2B004A8B24 /* Table.swift in Sources */,
+				042246422A65E878004DD867 /* NewOrderViewController.swift in Sources */,
 				0499578A2A61982600D08B99 /* UsersListTableViewController.swift in Sources */,
 				04BE31042A61809C004A8B24 /* AdminPanelViewController.swift in Sources */,
-				04BE30F82A617ACA004A8B24 /* CustomerOrder.swift in Sources */,
 				04BE30FA2A617AE6004A8B24 /* Dish.swift in Sources */,
+				0422463C2A6562EA004DD867 /* NewDishViewController.swift in Sources */,
 				04BE30E32A6179AC004A8B24 /* SceneDelegate.swift in Sources */,
 				04BE30F62A617AA2004A8B24 /* Category.swift in Sources */,
 				04BE31022A617B49004A8B24 /* User.swift in Sources */,

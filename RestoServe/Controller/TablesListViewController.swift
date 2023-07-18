@@ -14,11 +14,25 @@ class TablesListViewController: UITableViewController {
     var tables: Results<Table>?
     var currentUser: User?
     var currentTable: Table?
-
+    
+    @IBOutlet weak var labelText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loadTables()
+        
+        switch currentUser?.role {
+            case "Адміністратор":
+                labelText.text = "Список столиків"
+                break
+            case "Офіціант":
+                labelText.text = "Оберіть столик для замовлення"
+                break
+            case "Кухар":
+                break
+            default:
+                break
+        }
         
         if tables?.isEmpty ?? true {
             addInitialTables()
@@ -45,19 +59,19 @@ class TablesListViewController: UITableViewController {
             print("Error adding initial tables: \(error)")
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return tables?.count ?? 0
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -78,16 +92,33 @@ class TablesListViewController: UITableViewController {
         
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedTable = tables?[indexPath.row]
         currentTable = selectedTable
         // Перехід до TableDetailsViewController з обраним столиком
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tableDetailsVC = storyboard.instantiateViewController(withIdentifier: "TableDetailsViewController") as! TableDetailsViewController
-        tableDetailsVC.currentTable = selectedTable
-
-        navigationController?.pushViewController(tableDetailsVC, animated: true)
+        
+        switch currentUser?.role {
+            case "Адміністратор":
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tableDetailsVC = storyboard.instantiateViewController(withIdentifier: "TableDetailsViewController") as! TableDetailsViewController
+                tableDetailsVC.currentTable = selectedTable
+                navigationController?.pushViewController(tableDetailsVC, animated: true)
+                break
+            case "Офіціант":
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let newOrderVC = storyboard.instantiateViewController(withIdentifier: "NewOrderViewController") as! NewOrderViewController
+                newOrderVC.currentTable = selectedTable
+                newOrderVC.currentUser = currentUser
+                navigationController?.pushViewController(newOrderVC, animated: true)
+                break
+            case "Кухар":
+                break
+            default:
+                break
+        }
+        
+        
     }
-
+    
 }

@@ -21,7 +21,7 @@ class UsersListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.backButtonTitle = "Назад"
         self.fetchUsers()
         NotificationCenter.default.addObserver(self, selector: #selector(self.userUpdated), name: NSNotification.Name("UserUpdated"), object: nil)
         editButton.isEnabled = false
@@ -32,7 +32,7 @@ class UsersListTableViewController: UITableViewController {
     @IBAction func editButtonPressed(_ sender: UIButton) {
         
         guard selectedUser != nil else {
-            print("No user selected!")
+            print("Жоден користувач не обраний!")
             return
             
         }
@@ -53,7 +53,7 @@ class UsersListTableViewController: UITableViewController {
         }
         
         guard let user = selectedUser else {
-            print("No user selected!")
+            print("Жоден користувач не обраний!")
             return
         }
         
@@ -65,12 +65,12 @@ class UsersListTableViewController: UITableViewController {
             do {
                 try self.realm.write {
                     self.realm.delete(user)
-                    print("User deleted successfully")
+                    print("Користувач успішно видалений")
                     self.fetchUsers()
                     //self.updateButtonState()
                 }
             } catch let error {
-                print("Error deleting user: \(error)")
+                print("Помилка видалення користувача: \(error)")
             }
         }
         let cancelAction = UIAlertAction(title: "Скасувати", style: .cancel, handler: nil)

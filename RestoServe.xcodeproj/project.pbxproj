@@ -12,7 +12,6 @@
 		0422463C2A6562EA004DD867 /* NewDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422463B2A6562EA004DD867 /* NewDishViewController.swift */; };
 		0422463E2A657153004DD867 /* DishesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422463D2A657153004DD867 /* DishesViewController.swift */; };
 		042246402A65D9BA004DD867 /* WaiterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422463F2A65D9BA004DD867 /* WaiterViewController.swift */; };
-		042246422A65E878004DD867 /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042246412A65E878004DD867 /* NewOrderViewController.swift */; };
 		042246442A66938C004DD867 /* CustomerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042246432A66938C004DD867 /* CustomerOrder.swift */; };
 		0499578A2A61982600D08B99 /* UsersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049957892A61982600D08B99 /* UsersListTableViewController.swift */; };
 		0499578C2A61D4DE00D08B99 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499578B2A61D4DE00D08B99 /* ExtensionViewController.swift */; };
@@ -32,6 +31,11 @@
 		04BE31042A61809C004A8B24 /* AdminPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE31032A61809C004A8B24 /* AdminPanelViewController.swift */; };
 		04BE31072A61825A004A8B24 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE31062A61825A004A8B24 /* NewUserViewController.swift */; };
 		04BE31092A6188CB004A8B24 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE31082A6188CB004A8B24 /* Role.swift */; };
+		04E578DD2A66B03700A9042D /* OrderScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E578DC2A66B03700A9042D /* OrderScreenViewController.swift */; };
+		04E578E12A67E6CD00A9042D /* ArchivedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E578E02A67E6CD00A9042D /* ArchivedOrder.swift */; };
+		04E578E52A6809D300A9042D /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E578E42A6809D300A9042D /* BillViewController.swift */; };
+		04E578E72A685A3B00A9042D /* ArchivedOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E578E62A685A3A00A9042D /* ArchivedOrdersViewController.swift */; };
+		04E578E92A685E5600A9042D /* ArchivedOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E578E82A685E5600A9042D /* ArchivedOrderDetailViewController.swift */; };
 		8FA5E8022921727AE3EAC1D9 /* Pods_RestoServe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56E6034F09AFC2E366F1E51 /* Pods_RestoServe.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +45,6 @@
 		0422463B2A6562EA004DD867 /* NewDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDishViewController.swift; sourceTree = "<group>"; };
 		0422463D2A657153004DD867 /* DishesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesViewController.swift; sourceTree = "<group>"; };
 		0422463F2A65D9BA004DD867 /* WaiterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaiterViewController.swift; sourceTree = "<group>"; };
-		042246412A65E878004DD867 /* NewOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
 		042246432A66938C004DD867 /* CustomerOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrder.swift; sourceTree = "<group>"; };
 		049957892A61982600D08B99 /* UsersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListTableViewController.swift; sourceTree = "<group>"; };
 		0499578B2A61D4DE00D08B99 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +66,11 @@
 		04BE31032A61809C004A8B24 /* AdminPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelViewController.swift; sourceTree = "<group>"; };
 		04BE31062A61825A004A8B24 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		04BE31082A6188CB004A8B24 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		04E578DC2A66B03700A9042D /* OrderScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderScreenViewController.swift; sourceTree = "<group>"; };
+		04E578E02A67E6CD00A9042D /* ArchivedOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedOrder.swift; sourceTree = "<group>"; };
+		04E578E42A6809D300A9042D /* BillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
+		04E578E62A685A3A00A9042D /* ArchivedOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedOrdersViewController.swift; sourceTree = "<group>"; };
+		04E578E82A685E5600A9042D /* ArchivedOrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedOrderDetailViewController.swift; sourceTree = "<group>"; };
 		3DA0DC09F9A590867F36A855 /* Pods-RestoServe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestoServe.debug.xcconfig"; path = "Target Support Files/Pods-RestoServe/Pods-RestoServe.debug.xcconfig"; sourceTree = "<group>"; };
 		7119DB0F16F23AFE15CE17D4 /* Pods-RestoServe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestoServe.release.xcconfig"; path = "Target Support Files/Pods-RestoServe/Pods-RestoServe.release.xcconfig"; sourceTree = "<group>"; };
 		A56E6034F09AFC2E366F1E51 /* Pods_RestoServe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestoServe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +102,10 @@
 				0422463B2A6562EA004DD867 /* NewDishViewController.swift */,
 				0422463D2A657153004DD867 /* DishesViewController.swift */,
 				0422463F2A65D9BA004DD867 /* WaiterViewController.swift */,
-				042246412A65E878004DD867 /* NewOrderViewController.swift */,
+				04E578DC2A66B03700A9042D /* OrderScreenViewController.swift */,
+				04E578E42A6809D300A9042D /* BillViewController.swift */,
+				04E578E62A685A3A00A9042D /* ArchivedOrdersViewController.swift */,
+				04E578E82A685E5600A9042D /* ArchivedOrderDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -142,6 +153,7 @@
 				04BE31012A617B49004A8B24 /* User.swift */,
 				04BE31082A6188CB004A8B24 /* Role.swift */,
 				042246432A66938C004DD867 /* CustomerOrder.swift */,
+				04E578E02A67E6CD00A9042D /* ArchivedOrder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,14 +299,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E578E12A67E6CD00A9042D /* ArchivedOrder.swift in Sources */,
 				0422463E2A657153004DD867 /* DishesViewController.swift in Sources */,
 				04BE30E52A6179AC004A8B24 /* LoginViewController.swift in Sources */,
 				04BE30FE2A617B16004A8B24 /* OrderedDish.swift in Sources */,
 				04BE30E12A6179AC004A8B24 /* AppDelegate.swift in Sources */,
+				04E578E92A685E5600A9042D /* ArchivedOrderDetailViewController.swift in Sources */,
+				04E578DD2A66B03700A9042D /* OrderScreenViewController.swift in Sources */,
 				042246442A66938C004DD867 /* CustomerOrder.swift in Sources */,
 				042246402A65D9BA004DD867 /* WaiterViewController.swift in Sources */,
 				04BE31002A617B2B004A8B24 /* Table.swift in Sources */,
-				042246422A65E878004DD867 /* NewOrderViewController.swift in Sources */,
 				0499578A2A61982600D08B99 /* UsersListTableViewController.swift in Sources */,
 				04BE31042A61809C004A8B24 /* AdminPanelViewController.swift in Sources */,
 				04BE30FA2A617AE6004A8B24 /* Dish.swift in Sources */,
@@ -302,9 +316,11 @@
 				04BE30E32A6179AC004A8B24 /* SceneDelegate.swift in Sources */,
 				04BE30F62A617AA2004A8B24 /* Category.swift in Sources */,
 				04BE31022A617B49004A8B24 /* User.swift in Sources */,
+				04E578E52A6809D300A9042D /* BillViewController.swift in Sources */,
 				0499578C2A61D4DE00D08B99 /* ExtensionViewController.swift in Sources */,
 				04BE31092A6188CB004A8B24 /* Role.swift in Sources */,
 				04BE31072A61825A004A8B24 /* NewUserViewController.swift in Sources */,
+				04E578E72A685A3B00A9042D /* ArchivedOrdersViewController.swift in Sources */,
 				04BE30FC2A617AFC004A8B24 /* Order.swift in Sources */,
 				0499578E2A62A96200D08B99 /* TablesListViewController.swift in Sources */,
 				042246392A62BFF1004DD867 /* CategoryManagerViewController.swift in Sources */,

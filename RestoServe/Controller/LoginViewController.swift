@@ -23,6 +23,8 @@ class LoginViewController: ExtensionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backButtonTitle = "Назад"
+        
         let realmURL = try! FileManager.default
             .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("default.realm")
@@ -44,10 +46,10 @@ class LoginViewController: ExtensionViewController {
         do {
             realm = try Realm()
         } catch {
-            print("Error initialising Realm: \(error)")
+            print("Помилка ініціалізації Realm: \(error)")
         }
-        
     }
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
         guard let username = loginTextField.text,
@@ -56,18 +58,27 @@ class LoginViewController: ExtensionViewController {
         let users = realm.objects(User.self).filter("username = %@ AND password = %@", username, password)
         
         if let user = users.first {
+            loginTextField.text = ""
+            passwordTextField.text = ""
             if user.role == Role.admin.rawValue {
                 currentUser = user
                 navigateToAdminPanel()
             } else if user.role == Role.waiter.rawValue {
                 currentUser = user
                 navigateToWaiterPanel()
+            } else if user.role == Role.cook.rawValue {
+                currentUser = user
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tablesVC = storyboard.instantiateViewController(withIdentifier: "TablesListViewController") as! TablesListViewController
+                tablesVC.currentUser = currentUser
+                tablesVC.isCooker = true
+                navigationController?.pushViewController(tablesVC, animated: true)
             }
             
-            print("User found: \(user.username)")
         } else {
-            
-            print("Invalid username or password.")
+            let alert = UIAlertController(title: "Помилка", message: "Введені невірні дані для входу.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
         
     }
@@ -94,8 +105,6 @@ class LoginViewController: ExtensionViewController {
         let userPasswordText = passwordTextField.text ?? ""
         loginButton.isEnabled = !userLoginText.isEmpty && !userPasswordText.isEmpty
     }
-    
-    
 }
 
 

@@ -17,6 +17,7 @@ class AdminPanelViewController: ExtensionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backButtonTitle = "Назад"
         
     }
     
@@ -28,6 +29,10 @@ class AdminPanelViewController: ExtensionViewController{
         
         navigateToCreateUser()
         
+    }
+    
+    @IBAction func archiveOrdersButtonPressed(_ sender: UIButton) {
+        navigateToArchiveOrders()
     }
     
     
@@ -48,6 +53,14 @@ class AdminPanelViewController: ExtensionViewController{
     
     @IBAction func listOfDishesButtonPressed(_ sender: UIButton) {
         navigateToListOfDishes()
+    }
+    
+    func navigateToArchiveOrders() {
+        // Вам потрібно буде замінити 'AdminPanelViewController' на ім'я вашого класу в storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let archiveVC = storyboard.instantiateViewController(withIdentifier: "ArchivedOrdersViewController") as! ArchivedOrdersViewController
+        archiveVC.currentUser = currentUser
+        navigationController?.pushViewController(archiveVC, animated: true)
     }
     
     

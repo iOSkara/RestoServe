@@ -1,5 +1,5 @@
 //
-//  OrderedDish.swift
+//  User.swift
 //  RestoServe
 //
 //  Created by Roman Vasyltsov on 14.07.2023.
@@ -8,11 +8,11 @@
 import Foundation
 import RealmSwift
 
-class OrderedDish: Object {
+class User: Object, Identifiable {
     @objc dynamic var id = UUID().uuidString
-    @objc dynamic var dishId: Dish?
-    @objc dynamic var remainingTime = 0 // in seconds
-    @objc dynamic var quantity = 1  // Default to 1
+    @objc dynamic var username = ""
+    @objc dynamic var password = ""
+    @objc dynamic var role = "" // "admin", "waiter", "chef"
 
     override class func primaryKey() -> String? {
         return "id"

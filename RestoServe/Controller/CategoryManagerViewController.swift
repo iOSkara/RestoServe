@@ -29,7 +29,7 @@ class CategoryManagerViewController: ExtensionViewController, UITableViewDelegat
     @IBOutlet weak var deleteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.backButtonTitle = "Назад"
         do {
             let realm = try Realm()
             if realm.objects(Category.self).filter("name == 'Без категорії'").count == 0 {
@@ -40,7 +40,7 @@ class CategoryManagerViewController: ExtensionViewController, UITableViewDelegat
                 }
             }
         } catch {
-            print("Error initializing uncategorized category: \(error)")
+            print("\(error)")
         }
         
         editButton.isEnabled = false
@@ -90,7 +90,7 @@ class CategoryManagerViewController: ExtensionViewController, UITableViewDelegat
                     deleteButton.isEnabled = false
                 }
             } catch {
-                print("Error saving category: \(error)")
+                print("\(error)")
             }
         }
     }
@@ -114,7 +114,6 @@ class CategoryManagerViewController: ExtensionViewController, UITableViewDelegat
     @IBAction func deleteSelectedCategoryPressed(_ sender: UIButton) {
         
         guard let category = selectedCategory else {
-            print("No category selected!")
             return
         }
         
@@ -144,7 +143,7 @@ class CategoryManagerViewController: ExtensionViewController, UITableViewDelegat
                     self.tableView.reloadData()
                 }
             } catch let error {
-                print("Error deleting category: \(error)")
+                print("\(error)")
             }
         }
         let cancelAction = UIAlertAction(title: "Скасувати", style: .cancel, handler: nil)

@@ -25,7 +25,7 @@ class DishesViewController: ExtensionViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.backButtonTitle = "Назад"
         NotificationCenter.default.addObserver(self, selector: #selector(dishUpdated(_:)), name: NSNotification.Name("DishUpdated"), object: nil)
         
         fetchDishes()
@@ -66,9 +66,9 @@ class DishesViewController: ExtensionViewController, UITableViewDataSource, UITa
     }
     
     @IBAction func isAvailableSwitchValueChanged(_ sender: UISwitch) {
-        
+        editButton.isEnabled = false
+        deleteButton.isEnabled = false
         guard let dish = selectedDish else {
-            print("No dish selected!")
             return
         }
         
@@ -77,7 +77,7 @@ class DishesViewController: ExtensionViewController, UITableViewDataSource, UITa
                 dish.isAvailable = sender.isOn
             }
         } catch let error {
-            print("Error updating dish availability: \(error)")
+            print("\(error)")
         }
         
         if let indexPath = tableView.indexPathForSelectedRow {
@@ -93,7 +93,7 @@ class DishesViewController: ExtensionViewController, UITableViewDataSource, UITa
     @IBAction func deleteDishButtonPressed(_ sender: UIButton) {
         
         guard let dish = selectedDish else {
-            print("No dish selected!")
+
             return
         }
         
@@ -108,7 +108,7 @@ class DishesViewController: ExtensionViewController, UITableViewDataSource, UITa
                     self.tableView.reloadData()
                 }
             } catch let error {
-                print("Error deleting dish: \(error)")
+                print("\(error)")
             }
         }
         let cancelAction = UIAlertAction(title: "Скасувати", style: .cancel, handler: nil)
@@ -123,8 +123,8 @@ class DishesViewController: ExtensionViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         guard let dish = categories?[indexPath.section].dishes[indexPath.row] else {
-            print("No dish selected!")
             return
         }
         
@@ -145,7 +145,8 @@ class DishesViewController: ExtensionViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-        headerView.backgroundColor = .lightGray
+        headerView.backgroundColor = UIColor(hex: "#DCDCDC")
+        addBorderAndRoundedCorners(to: headerView)
         let headerLabel = UILabel(frame: CGRect(x: 25, y: 0, width:
                                                     tableView.bounds.size.width, height: tableView.bounds.size.height))
         headerLabel.textColor = UIColor.black

@@ -29,7 +29,7 @@ class NewDishViewController: ExtensionViewController, UIPickerViewDelegate, UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.backButtonTitle = "Назад"
         if let dish = dishToEdit {
             dishNameTextField.text = dish.name
             dishDescriptionTextField.text = dish.descriptionText
@@ -96,7 +96,7 @@ class NewDishViewController: ExtensionViewController, UIPickerViewDelegate, UIPi
                     self.navigationController?.popViewController(animated: true)
                 }
             } catch {
-                print("Error saving new dish: \(error)")
+                print("\(error)")
             }
         } else {
             let newDish = Dish()
@@ -111,7 +111,7 @@ class NewDishViewController: ExtensionViewController, UIPickerViewDelegate, UIPi
                     realm.add(newDish)
                 }
             } catch {
-                print("Error saving new dish, \(error)")
+                print("\(error)")
             }
         }
         dishNameTextField.text = ""

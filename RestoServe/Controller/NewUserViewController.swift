@@ -64,7 +64,7 @@ class NewUserViewController: ExtensionViewController, UIPickerViewDataSource, UI
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        navigationItem.backButtonTitle = "Назад"
         if let user = userToEdit {
             userLoginTextField.text = user.username
             userPasswordTextField.text = user.password
@@ -108,13 +108,13 @@ class NewUserViewController: ExtensionViewController, UIPickerViewDataSource, UI
                     user.username = userLoginTextField.text!
                     user.password = userPasswordTextField.text!
                     user.role = Role.allCases[rolePickerView.selectedRow(inComponent: 0)].rawValue
-                    print("User updated successfully")
+                    
                 }
                 NotificationCenter.default.post(name: NSNotification.Name("UserUpdated"), object: nil)
                 self.dismiss(animated: true, completion: nil)
                 self.navigationController?.popViewController(animated: true)
             } catch let error {
-                print("Error updating user: \(error)")
+                print("Помилка оновлення користувача: \(error)")
             }
             
         } else {
@@ -135,14 +135,14 @@ class NewUserViewController: ExtensionViewController, UIPickerViewDataSource, UI
             do {
                 try realm.write {
                     realm.add(user)
-                    print("User added successfully")
+                    print("Користувач успішно доданий")
                     userLoginTextField.text! = ""
                     userPasswordTextField.text! = ""
                     rolePickerView.selectRow(0, inComponent: 0, animated: true)
                 }
                 self.dismiss(animated: true, completion: nil)
             } catch let error {
-                print("Error creating new user: \(error)")
+                print("Помилка створення користувача: \(error)")
             }
         }
         
